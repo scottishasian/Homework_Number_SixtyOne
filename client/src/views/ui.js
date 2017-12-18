@@ -23,6 +23,8 @@ UI.prototype.render = function (films) {
   for (let film of films) {
     const li = document.createElement("li");
     this.appendText(li, film.title, "Film: ");
+    this.appendText(li, film.genre, "Genre: ");
+    this.appendText(li, film.actors, "Actors: ");
 
     for (let review of film.reviews) {
       this.createReview(li, review);

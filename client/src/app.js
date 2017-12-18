@@ -6,7 +6,10 @@ const app = function () {
   const ui = new UI(container);
 
   const films = getFilms();
+
+  //refactor to take in films array?
   ui.render(films);
 }
+
 
 document.addEventListener('DOMContentLoaded', app);
