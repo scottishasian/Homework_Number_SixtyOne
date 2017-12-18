@@ -2,12 +2,15 @@
 const Film = require('../client/src/models/film');
 const Review = require('../client/src/models/review');
 const getFilms = require('../client/src/models/films');
+const express = require('express');
 const filmRouter = new express.Router();
 const films = getFilms();
-const filmsArray = []
 
-filmRouter.get('/:id', function(req, res) {
-  filmsArray.push(films);
-  const selectedFilm = filmsArray[req.params.id];
-  res.json({film: selectedFilm});
+filmRouter.get('/', function(req, res) {
+  res.json(films);
+});
+
+filmRouter.get('/:id', function(req, res){
+  res.json({film : films[req.params.id]});
+  //wrapped in object
 });
